@@ -17,3 +17,4 @@ de reciclagem pegamos dados da api do IBGE para listas cidades e estados(UF), us
 
 
 ## Layout no figma https://www.figma.com/file/1SxgOMojOB2zYT0Mdk28lB/Ecoleta?node-id=0%3A1 ##
+====> Booster
