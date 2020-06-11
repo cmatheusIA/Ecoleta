@@ -1,6 +1,6 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {Feather as Icons} from '@expo/vector-icons'
-import {View, ImageBackground,Text, StyleSheet,Image} from 'react-native';
+import {View, ImageBackground,Text, StyleSheet,Image, TextInput,KeyboardAvoidingView,Platform } from 'react-native';
 import {RectButton} from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native';
 
@@ -8,44 +8,72 @@ import { useNavigation } from '@react-navigation/native';
 
 const Home =()=>{
 
+  const [uf,setUF] = useState('')
+  const [city,setCity] = useState('')
   const navigation = useNavigation();
 
   function handleNavigationToPoints(){
-    navigation.navigate('Points')
+    navigation.navigate('Points',{
+      uf,
+      city
+    })
   }
 
   return(
-    <ImageBackground 
-        source= { require('../assets/home-background.png')} 
-        style= {styles.container}
-        imageStyle={{width:274, height:378 }}
-        >
-      <View style={styles.main}>
-        <Image source={require('../assets/logo.png')} style={styles.imagem} />
-        <Text style = {styles.title}> 
-          Seu MarketPlace de Resíduos
-        </Text>
-        <Text style = {styles.description}> 
-          Ajudamos você a encontrar pontos de coleta!!!!
-          Salve o Planeta!!
-        </Text>
+    <KeyboardAvoidingView style={{flex:1}} behavior={Platform.OS==='ios' ? 'padding':undefined} >
+      <ImageBackground 
+          source= { require('../assets/home-background.png')} 
+          style= {styles.container}
+          imageStyle={{width:274, height:378 }}
+          >
+        <View style={styles.main}>
+          <Image source={require('../assets/logo.png')} style={styles.imagem} />
+          <View>
+            <Text style = {styles.title}> 
+              Seu MarketPlace de Resíduos
+            </Text>
+            <Text style = {styles.description}> 
+              Ajudamos você a encontrar pontos de coleta!!!!
+              Salve o Planeta!!
+            </Text>
+          </View>
+        </View>
 
-      </View>
+        <View style = {styles.footer}>
 
-      <View style = {styles.footer}>
-          <RectButton style = { styles.button} onPress={handleNavigationToPoints}>
-            <View style= { styles.buttonIcon}>
-             <Text>
-               <Icons name = "arrow-right" color={"#FFF"} size={25}/>
-             </Text>
-            </View>
-            <Text style = {styles.buttonText}>
-                   Entrar
+            <TextInput
+              style = {styles.input}
+              placeholder="Digite a UF"
+              value={uf}
+              maxLength={2}
+              autoCapitalize={'characters'}
+              autoCorrect={false}
+              onChangeText={setUF}
+            />
+            <TextInput
+              style = {styles.input}
+              placeholder="Digite a Cidade"
+              value={city}
+              autoCorrect={false}
+              onChangeText={setCity}
+            />
+
+
+
+            <RectButton style = { styles.button} onPress={handleNavigationToPoints}>
+              <View style= { styles.buttonIcon}>
+              <Text>
+                <Icons name = "arrow-right" color={"#FFF"} size={25}/>
               </Text>
-          </RectButton>
-      </View>
+              </View>
+              <Text style = {styles.buttonText}>
+                    Entrar
+                </Text>
+            </RectButton>
+        </View>
 
-    </ImageBackground>
+      </ImageBackground>
+    </KeyboardAvoidingView>
   );
 
 }

@@ -19,7 +19,7 @@ class pointsControllers{
     const trx = await knex.transaction()
 
     const point = {
-      image:'fake-https://images.unsplash.com/photo-1540661116512-12e516d30ce4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60',
+      image:request.file.filename,
       name,
       email,
       whatsapp,
@@ -33,12 +33,15 @@ class pointsControllers{
   
     const point_id = insertedIds[0]
   
-    const pointItens = itens.map((itens_id:Number)=>{
-        return{
-          point_id,
-          itens_id
-        }
-    })
+    const pointItens = itens
+            .split(',')
+            .map((item:string)=>Number(item.trim()))
+            .map((itens_id:Number)=>{
+                    return{
+                      point_id,
+                      itens_id
+                    }
+              })
   
     await trx('point_itens').insert(pointItens)
   
