@@ -12,7 +12,9 @@ de reciclagem pegamos dados da api do IBGE para listas cidades e estados(UF), us
   * ReactJs
   * Axios Para pegar dados tanto do nosso backend como da api do IBGE
 * Mobile
-  * ainda produção
+  * React-Native
+  * Expo 
+  * Axios para integração com o backend
 
 
 
