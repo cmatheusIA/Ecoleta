@@ -15,9 +15,15 @@ de reciclagem pegamos dados da api do IBGE para listas cidades e estados(UF), us
   * DropZone
   * react-leaflet
 * Mobile
+<<<<<<< HEAD
   * Expo
   * react-native-maps
   * Expo-location
+=======
+  * React-Native
+  * Expo 
+  * Axios para integração com o backend
+>>>>>>> eaa66cffef74e47a91466b48dda74a864ba3754c
 
 
 
