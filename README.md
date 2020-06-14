@@ -15,16 +15,14 @@ de reciclagem pegamos dados da api do IBGE para listas cidades e estados(UF), us
   * DropZone
   * react-leaflet
 * Mobile
-<<<<<<< HEAD
   * Expo
   * react-native-maps
   * Expo-location
-=======
   * React-Native
   * Expo 
   * Axios para integração com o backend
->>>>>>> eaa66cffef74e47a91466b48dda74a864ba3754c
 
+:rocket:
 
 
 ## Layout no figma https://www.figma.com/file/1SxgOMojOB2zYT0Mdk28lB/Ecoleta?node-id=0%3A1 ##
