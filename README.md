@@ -8,11 +8,16 @@ de reciclagem pegamos dados da api do IBGE para listas cidades e estados(UF), us
   * NodeJs
   * sqlite
   * KnexJs
+  * Celebrate
 * Frontend
   * ReactJs
   * Axios Para pegar dados tanto do nosso backend como da api do IBGE
+  * DropZone
+  * react-leaflet
 * Mobile
-  * ainda produção
+  * Expo
+  * react-native-maps
+  * Expo-location
 
 
 

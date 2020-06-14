@@ -62,12 +62,18 @@ class pointsControllers{
       return response.status(400).json({deu:"ruim"})
     } 
 
+    const serializedPoints = {
+                              ...point,
+                               imagem_url: `http://192.168.0.15:3333/uploads/${point.image}`
+              }
+
+
     const itens = await knex('itens')
                       .join('point_itens','itens.id','=','point_itens.itens_id')
                       .where('point_itens.point_id',id)
                       .select('itens.titulo')
 
-    return response.json({point,itens})
+    return response.json({point : serializedPoints,itens})
 
   }
 
@@ -84,7 +90,16 @@ class pointsControllers{
                         .where('city',String(city))
                         .where('uf',String(uf))
                         .distinct()
-                        .select('points.*')
+                        .select('points.*');
+
+
+    const serializedPoints = points.map(point =>{
+                                return {
+                                          ...point,
+                                          imagem_url: `http://192.168.0.15:3333/uploads/${point.image}`,
+                                        }})
+
+    
 
     return response.json(points)
      
